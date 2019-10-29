@@ -10,11 +10,17 @@
     "@babel/core": "^7.6.4",
     "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
+    "eslint-config-airbnb": "^18.0.1",
     "express": "^4.17.1",
     "nodemon": "^1.19.4",
+    "pug": "^2.0.4",
     "socket.io": "^2.3.0"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/server"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-prettier": "^3.1.1"
   }
 }
