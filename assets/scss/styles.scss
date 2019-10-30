@@ -25,3 +25,34 @@ body {
     }
   }
 }
+
+.loginBox {
+  width: 100%;
+  max-width: 270px;
+  height: 100px;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: $boxShadow;
+    input {
+      padding: 15px 30px;
+      border-radius: 10px;
+      background-color: $greyColor;
+      border: none;
+      outline: 0;
+      box-shadow: $boxShadow;
+      font-family: 'Titillium Web';
+      font-size: 15px;
+    }
+    input::placeholder {
+      font-family: 'Titillium Web';
+      font-weight: 600;
+      font-size: 13px;
+    }
+  }
+}
