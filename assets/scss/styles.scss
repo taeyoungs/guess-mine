@@ -15,12 +15,12 @@ body {
     display: none;
   }
   &.loggedIn {
-    .loginBox {
+    .gameContainer {
       display: block;
     }
   }
   &.loggedOut {
-    .gameContainer {
+    .loginBox {
       display: block;
     }
   }
