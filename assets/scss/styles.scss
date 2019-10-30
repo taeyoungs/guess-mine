@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Staatliches|Titillium+Web&display=swap');
+@import './reset.scss';
+@import './variables.scss';
+
+body {
+  background-color: #f6f9fc;
+  font-family: 'Titillium Web';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .loginBox,
+  .gameContainer {
+    display: none;
+  }
+  &.loggedIn {
+    .loginBox {
+      display: block;
+    }
+  }
+  &.loggedOut {
+    .gameContainer {
+      display: block;
+    }
+  }
+}
