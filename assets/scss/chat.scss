@@ -1,0 +1,56 @@
+.chat {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat__messages {
+  background-color: white;
+  height: 70vh;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px 10px;
+  overflow: scroll;
+  box-shadow: $boxShadow;
+  -ms-overflow-style: none; // IE에서 스크롤바 감춤
+  &::-webkit-scrollbar {
+    display: none !important; // 윈도우 크롬 등
+  }
+  li {
+    margin-bottom: 8px;
+    .author {
+      font-weight: 600;
+    }
+    .out {
+      color: $orange;
+    }
+    .self {
+      color: black;
+    }
+  }
+}
+
+.chat__form {
+  position: relative;
+  left: -15px;
+  top: -10px;
+  max-width: 230px;
+  width: 100%;
+  input {
+    padding: 15px 15px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $greyColor;
+    border: none;
+    outline: 0;
+    box-shadow: $boxShadow;
+    font-family: 'Titillium Web';
+    font-size: 15px;
+  }
+  input::placeholder {
+    font-family: 'Titillium Web';
+    font-weight: 600;
+    font-size: 13px;
+  }
+}

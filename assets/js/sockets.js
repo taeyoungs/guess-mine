@@ -1,4 +1,5 @@
 import { handleNewUser, handleDisconnect } from './notifications';
+import { handleNewMsg } from './chat';
 
 let socket = null;
 
@@ -12,4 +13,5 @@ export const initSockets = aSocket => {
   updateSocket(aSocket);
   socket.on(events.newUser, handleNewUser);
   socket.on(events.disconnected, handleDisconnect);
+  socket.on(events.newMsg, handleNewMsg);
 };
