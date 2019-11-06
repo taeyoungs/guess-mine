@@ -3,21 +3,23 @@
 @import './variables.scss';
 @import './notifications.scss';
 @import './chat.scss';
+@import './canvas.scss';
 
 body {
   background-color: #f6f9fc;
   font-family: 'Titillium Web';
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   .loginBox,
-  .gameContainer {
+  .gameContainer,
+  .canvasContainer {
     display: none;
   }
   &.loggedIn {
-    .gameContainer {
+    .gameContainer,
+    .canvasContainer {
       display: block;
     }
   }
