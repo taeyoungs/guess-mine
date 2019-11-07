@@ -1,16 +1,43 @@
 import events from './events';
+import chooseWord from './words';
 
-const socketController = socket => {
+let sockets = [];
+let inProgress = false;
+let leader = null;
+let word = null;
+
+const socketController = (socket, io) => {
   const broadcast = (event, data) => socket.broadcast.emit(event, data);
+  const superBroadcast = (event, data) => io.emit(event, data);
+  const startGame = () => {
+    if (inProgress === false) {
+      inProgress = true;
+      leader = sockets[Math.floor(Math.random() * sockets.length)];
+      word = chooseWord();
+    }
+  };
+
+  const endGame = () => {
+    inProgress = false;
+  };
 
   socket.on(events.setNickname, ({ nickname }) => {
-    console.log(nickname);
     socket.nickname = nickname;
+    sockets.push({ id: socket.id, points: 0, nickname: socket.nickname });
     broadcast(events.newUser, { nickname });
+    superBroadcast(events.playerUpdated, { sockets });
+    if (sockets.length >= 2) {
+      startGame();
+    }
   });
   socket.on(events.disconnect, () => {
-    console.log('Disconnected!');
+    console.log('Disconnected');
+    sockets = sockets.filter(aSocket => aSocket.id !== socket.id);
     broadcast(events.disconnected, { nickname: socket.nickname });
+    superBroadcast(events.playerUpdated, { sockets });
+    if (sockets.length === 1) {
+      endGame();
+    }
   });
   socket.on(events.sendMsg, ({ message }) => {
     console.log(message);

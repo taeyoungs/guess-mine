@@ -1,0 +1,23 @@
+.listContainer {
+  height: 70vh;
+}
+
+.listTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.playerList {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.playerList span {
+  display: inline-block;
+  background-color: white;
+  padding: 15px 10px;
+  border-radius: 10px;
+  box-shadow: $boxShadow;
+  margin-bottom: 8px;
+}

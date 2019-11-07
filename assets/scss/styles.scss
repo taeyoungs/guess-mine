@@ -4,6 +4,7 @@
 @import './notifications.scss';
 @import './chat.scss';
 @import './canvas.scss';
+@import './player.scss';
 
 body {
   background-color: #f6f9fc;
@@ -14,12 +15,14 @@ body {
   height: 100vh;
   .loginBox,
   .gameContainer,
-  .canvasContainer {
+  .canvasContainer,
+  .listContainer {
     display: none;
   }
   &.loggedIn {
     .gameContainer,
-    .canvasContainer {
+    .canvasContainer,
+    .listContainer {
       display: block;
     }
   }

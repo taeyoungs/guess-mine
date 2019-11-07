@@ -13,6 +13,7 @@ const events = {
   fillCleared: 'fillCleared',
   fill: 'fill',
   filled: 'filled',
+  playerUpdated: 'playerUpdated',
 };
 
 export default events;

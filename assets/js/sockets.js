@@ -6,6 +6,7 @@ import {
   handleFilled,
   handleFillCleared,
 } from './canvas';
+import { handlePlayerUpdated } from './player';
 
 let socket = null;
 
@@ -22,4 +23,5 @@ export const initSockets = aSocket => {
   socket.on(events.strokedPath, handleStrokedPath);
   socket.on(events.filled, handleFilled);
   socket.on(events.fillCleared, handleFillCleared);
+  socket.on(events.playerUpdated, handlePlayerUpdated);
 };

@@ -33,6 +33,9 @@ html(lang="en")
                 ul.chat__messages#jsMessages
                 form.chat__form#jsSendMsg
                     input(type="text", placeholder="Write a message")
+        .listContainer 
+            .listTitle Player List
+            .playerList#jsPlayerList 
         script.
             window.events = !{events}
         script(src="/socket.io/socket.io.js")
