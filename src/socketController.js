@@ -16,6 +16,18 @@ const socketController = socket => {
     console.log(message);
     broadcast(events.newMsg, { nickname: socket.nickname, message });
   });
+  socket.on(events.beginPath, ({ x, y }) => {
+    broadcast(events.beganPath, { x, y });
+  });
+  socket.on(events.strokePath, ({ x, y, color }) => {
+    broadcast(events.strokedPath, { x, y, color });
+  });
+  socket.on(events.fill, ({ color }) => {
+    broadcast(events.filled, { color });
+  });
+  socket.on(events.fillClear, () => {
+    broadcast(events.fillCleared);
+  });
 };
 
 export default socketController;

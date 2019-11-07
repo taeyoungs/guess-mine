@@ -1,9 +1,10 @@
+import { getSocket } from './sockets';
+
 const canvas = document.getElementById('jsCanvas');
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName('jsColor');
 const range = document.getElementById('jsRange');
 const mode = document.getElementById('jsMode');
-const saveBtn = document.getElementById('jsSave');
 const clearBtn = document.getElementById('jsClear');
 
 const DEFAULT_COLOR = '#2c2c2c';
@@ -35,15 +36,34 @@ function stopPainting() {
   painting = false;
 }
 
+const beginPath = (x, y) => {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+};
+
+const storkePath = (x, y, color = null) => {
+  const currentColor = ctx.strokeStyle;
+  if (color !== null) {
+    ctx.strokeStyle = color;
+  }
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  ctx.strokeStyle = currentColor;
+};
+
 function onMouseMove(event) {
   const x = event.offsetX;
   const y = event.offsetY;
   if (!painting) {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
+    beginPath(x, y);
+    getSocket().emit(window.events.beginPath, { x, y });
   } else {
-    ctx.lineTo(x, y);
-    ctx.stroke();
+    storkePath(x, y);
+    getSocket().emit(window.events.strokePath, {
+      x,
+      y,
+      color: ctx.strokeStyle,
+    });
   }
 }
 
@@ -68,9 +88,19 @@ function handleModeClick() {
   }
 }
 
+const fillCanvas = (color = null) => {
+  const currentColor = ctx.fillStyle;
+  if (color !== null) {
+    ctx.fillStyle = color;
+  }
+  ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  ctx.fillStyle = currentColor;
+};
+
 function handleCanvasClick() {
   if (filling) {
-    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    fillCanvas();
+    getSocket().emit(window.events.fill, { color: ctx.fillStyle });
   }
 }
 
@@ -78,11 +108,16 @@ function handleCM(event) {
   event.preventDefault();
 }
 
-function handleClearCanvas() {
+const fillClear = () => {
   const currentColor = ctx.fillStyle;
   ctx.fillStyle = 'white';
-  ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  fillCanvas();
   ctx.fillStyle = currentColor;
+};
+
+function handleClearCanvas() {
+  fillClear();
+  getSocket().emit(window.events.fillClear);
 }
 
 if (canvas) {
@@ -111,3 +146,11 @@ if (mode) {
 if (clearBtn) {
   clearBtn.addEventListener('click', handleClearCanvas);
 }
+
+export const handleBeganPath = ({ x, y }) => beginPath(x, y);
+
+export const handleStrokedPath = ({ x, y, color }) => storkePath(x, y, color);
+
+export const handleFilled = ({ color }) => fillCanvas(color);
+
+export const handleFillCleared = () => fillClear();
