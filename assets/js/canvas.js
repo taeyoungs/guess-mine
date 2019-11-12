@@ -6,6 +6,8 @@ const colors = document.getElementsByClassName('jsColor');
 const range = document.getElementById('jsRange');
 const mode = document.getElementById('jsMode');
 const clearBtn = document.getElementById('jsClear');
+const controls = document.getElementById('jsControls');
+const gameNotif = document.getElementById('jsGameNotif');
 
 const DEFAULT_COLOR = '#2c2c2c';
 const CANVAS_SIZE = 500;
@@ -108,7 +110,7 @@ function handleCM(event) {
   event.preventDefault();
 }
 
-const fillClear = () => {
+export const fillClear = () => {
   const currentColor = ctx.fillStyle;
   ctx.fillStyle = 'white';
   fillCanvas();
@@ -120,12 +122,35 @@ function handleClearCanvas() {
   getSocket().emit(window.events.fillClear);
 }
 
-if (canvas) {
+export const enableCanvas = () => {
   canvas.addEventListener('click', handleCanvasClick);
   canvas.addEventListener('mousemove', onMouseMove);
   canvas.addEventListener('mousedown', startPainting);
   canvas.addEventListener('mouseup', stopPainting);
   canvas.addEventListener('mouseleave', stopPainting);
+};
+
+export const disableCanvas = () => {
+  canvas.removeEventListener('click', handleCanvasClick);
+  canvas.removeEventListener('mousemove', onMouseMove);
+  canvas.removeEventListener('mousedown', startPainting);
+  canvas.removeEventListener('mouseup', stopPainting);
+  canvas.removeEventListener('mouseleave', stopPainting);
+};
+
+export const removeControls = () => {
+  controls.style.opacity = 0;
+  controls.style.cursor = 'default';
+};
+
+export const showControls = () => {
+  controls.style.opacity = 1;
+  controls.style.cursor = 'pointer';
+};
+
+if (canvas) {
+  enableCanvas();
+  gameNotif.innerText = 'The game starts when there are two or more players.';
   canvas.addEventListener('contextmenu', handleCM);
 }
 

@@ -3,7 +3,7 @@ import chooseWord from './words';
 
 let sockets = [];
 let inProgress = false;
-let leader = null;
+let painter = null;
 let word = null;
 
 const socketController = (socket, io) => {
@@ -12,8 +12,15 @@ const socketController = (socket, io) => {
   const startGame = () => {
     if (inProgress === false) {
       inProgress = true;
-      leader = sockets[Math.floor(Math.random() * sockets.length)];
+      painter = sockets[Math.floor(Math.random() * sockets.length)];
       word = chooseWord();
+      superBroadcast(events.startGame);
+      setTimeout(() => {
+        superBroadcast(events.clearGameNotif);
+      }, 4500);
+      setTimeout(() => {
+        io.to(painter.id).emit(events.painterNotif, { word });
+      }, 5000);
     }
   };
 
@@ -37,6 +44,12 @@ const socketController = (socket, io) => {
     superBroadcast(events.playerUpdated, { sockets });
     if (sockets.length === 1) {
       endGame();
+      broadcast(events.noPerson);
+    } else if (painter) {
+      if (painter.id === socket.id) {
+        endGame();
+        broadcast(events.endGame);
+      }
     }
   });
   socket.on(events.sendMsg, ({ message }) => {

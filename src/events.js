@@ -14,6 +14,11 @@ const events = {
   fill: 'fill',
   filled: 'filled',
   playerUpdated: 'playerUpdated',
+  startGame: 'startGame',
+  endGame: 'endGame',
+  painterNotif: 'painterNotif',
+  clearGameNotif: 'clearGameNotif',
+  noPerson: 'noPerson',
 };
 
 export default events;
