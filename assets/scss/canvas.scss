@@ -1,5 +1,6 @@
 .canvasContainer {
   margin-right: 100px;
+  height: 780px;
 }
 
 .canvas {
@@ -87,8 +88,4 @@ input[type='range']::-webkit-slider-thumb {
   background: #f9ca24;
   cursor: pointer; /* Cursor on hover */
   border-radius: 50px;
-}
-
-.gameNotif {
-  margin: 10px;
 }

@@ -1,4 +1,5 @@
 import { getSocket } from './sockets';
+import { removeClock, removeNotif } from './canvas';
 
 const messages = document.getElementById('jsMessages');
 const sendMsg = document.getElementById('jsSendMsg');
@@ -6,13 +7,21 @@ const sendMsg = document.getElementById('jsSendMsg');
 // 사용자 화면에 메세지 출력해주는 함수
 export const appendMsg = (text, nickname) => {
   const li = document.createElement('li');
-  li.innerHTML = `<span class="author ${nickname ? 'out' : 'self'}"> ${
-    nickname ? nickname : 'You'
-  }: </span>${text}`;
+  if (nickname === 'Bot') {
+    li.innerHTML = `<span class="author bot"> ${nickname}: </span>${text}`;
+  } else {
+    li.innerHTML = `<span class="author ${nickname ? 'out' : 'self'}"> ${
+      nickname ? nickname : 'You'
+    }: </span>${text}`;
+  }
   messages.appendChild(li);
 };
 
 export const handleNewMsg = ({ message, nickname }) => {
+  if (nickname === 'Bot') {
+    removeNotif();
+  }
+  removeClock();
   appendMsg(message, nickname);
 };
 

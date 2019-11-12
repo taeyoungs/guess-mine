@@ -5,6 +5,8 @@ import {
   handleNoPerson,
   handlePainterNotif,
   handleClearGameNotif,
+  handleStartTimeout,
+  handleTimeEnded,
 } from './player';
 import {
   handleFillCleared,
@@ -36,4 +38,7 @@ export const initSockets = aSocket => {
   socket.on(events.noPerson, handleNoPerson);
   socket.on(events.painterNotif, handlePainterNotif);
   socket.on(events.clearGameNotif, handleClearGameNotif);
+  socket.on(events.correctAnswer, handleNewMsg);
+  socket.on(events.startTimeout, handleStartTimeout);
+  socket.on(events.timeEnded, handleTimeEnded);
 };

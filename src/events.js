@@ -19,6 +19,9 @@ const events = {
   painterNotif: 'painterNotif',
   clearGameNotif: 'clearGameNotif',
   noPerson: 'noPerson',
+  correctAnswer: 'correctAnswer',
+  startTimeout: 'startTimeout',
+  timeEnded: 'timeEnded',
 };
 
 export default events;

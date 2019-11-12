@@ -13,12 +13,24 @@
   }
 }
 
-@keyframes dissapear {
+@keyframes disappear {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
+  }
+}
+
+@keyframes clock {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -35,7 +47,35 @@
   text-align: center;
   border-radius: 50px;
   animation: notification 0.5s ease-out forwards,
-    dissapear 0.5s ease-in forwards;
+    disappear 0.5s ease-in forwards;
   animation-delay: 0.5s, 2s;
   color: white;
+}
+
+.notifContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 103px;
+  .timeout {
+    padding: 15px 25px;
+    font-size: 20px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    animation-name: clock;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  .gameNotif {
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+  }
 }

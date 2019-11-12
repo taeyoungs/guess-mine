@@ -22,7 +22,8 @@
     display: none !important; // 윈도우 크롬 등
   }
   li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    line-height: 24px;
     .author {
       font-weight: 600;
     }
@@ -31,6 +32,9 @@
     }
     .self {
       color: black;
+    }
+    .bot {
+      color: $darkBlue;
     }
   }
 }

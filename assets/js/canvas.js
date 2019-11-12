@@ -8,6 +8,8 @@ const mode = document.getElementById('jsMode');
 const clearBtn = document.getElementById('jsClear');
 const controls = document.getElementById('jsControls');
 const gameNotif = document.getElementById('jsGameNotif');
+const msgForm = document.getElementById('jsSendMsg');
+const clock = document.getElementById('jsTimeout');
 
 const DEFAULT_COLOR = '#2c2c2c';
 const CANVAS_SIZE = 500;
@@ -139,17 +141,40 @@ export const disableCanvas = () => {
 };
 
 export const removeControls = () => {
-  controls.style.opacity = 0;
-  controls.style.cursor = 'default';
+  controls.style.display = 'none';
 };
 
 export const showControls = () => {
-  controls.style.opacity = 1;
-  controls.style.cursor = 'pointer';
+  controls.style.display = 'flex';
+};
+
+export const disableChat = () => {
+  msgForm.style.display = 'none';
+};
+
+export const enableChat = () => {
+  msgForm.style.display = 'flex';
+};
+
+export const removeClock = () => {
+  clock.style.display = 'none';
+};
+
+export const showClock = () => {
+  clock.style.display = 'block';
+};
+
+export const removeNotif = () => {
+  gameNotif.style.display = 'none';
+};
+
+export const showNotif = () => {
+  gameNotif.style.display = 'block';
 };
 
 if (canvas) {
   enableCanvas();
+  removeClock();
   gameNotif.innerText = 'The game starts when there are two or more players.';
   canvas.addEventListener('contextmenu', handleCM);
 }
