@@ -40,7 +40,7 @@
     "build": "yarn run build:server && yarn run build:assets && yarn run copyAll",
     "prebuild": "rd /s /q build",
     "start": "node build/server.js",
-    "prestart": "npm run build"
+    "prestart": "yarn run build"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
