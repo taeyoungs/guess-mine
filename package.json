@@ -27,14 +27,14 @@
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
     "pug": "^2.0.4",
-    "shell-quote": "^1.7.2",
+    "shell-quote": ">=1.6.1",
     "socket.io": "^2.3.0",
-    "uglify-js": "^3.6.7"
+    "uglify-js": ">=2.6.0"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",
     "dev:assets": "gulp",
-    "postinstall": "gulp default",
+    "build:assets": "gulp",
     "build:server": "babel src --out-dir build --ignore 'src/static',",
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "yarn run build:server && yarn run copyAll",
