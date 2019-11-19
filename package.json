@@ -27,9 +27,9 @@
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
     "pug": "^2.0.4",
-    "shell-quote": ">=1.6.1",
+    "shell-quote": "^1.7.2",
     "socket.io": "^2.3.0",
-    "uglify-js": ">=2.6.0"
+    "uglify-js": "^3.6.7"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",

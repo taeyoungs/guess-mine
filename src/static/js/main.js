@@ -337,7 +337,7 @@ require("./login");
 require("./chat");
 
 require("./canvas");
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfODk0MGI1OTcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnLi9zb2NrZXRzJztcclxuaW1wb3J0ICcuL2xvZ2luJztcclxuaW1wb3J0ICcuL2NoYXQnO1xyXG5pbXBvcnQgJy4vY2FudmFzJztcclxuIl19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfNzZiZWU0YmQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnLi9zb2NrZXRzJztcclxuaW1wb3J0ICcuL2xvZ2luJztcclxuaW1wb3J0ICcuL2NoYXQnO1xyXG5pbXBvcnQgJy4vY2FudmFzJztcclxuIl19
 },{"./canvas":1,"./chat":2,"./login":4,"./sockets":7}],4:[function(require,module,exports){
 "use strict";
 
