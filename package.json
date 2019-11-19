@@ -35,9 +35,10 @@
     "dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",
     "dev:assets": "gulp",
     "postinstall": "gulp default",
-    "build:server": "babel src --out-dir build",
-    "copyAll": "xcopy .\\src\\static .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y",
+    "build:server": "babel src --out-dir build --ignore 'src/static',",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "yarn run build:server && yarn run copyAll",
+    "prebuild": "rm -rf build",
     "start": "node build/server.js",
     "prestart": "yarn run build"
   },
