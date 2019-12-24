@@ -62,6 +62,7 @@ export const handleNoPerson = () => {
   enableChat();
   fillClear();
   showNotif();
+  enableCanvas();
   gameNotif.innerText = 'The game starts when there are two or more players.';
 };
 
