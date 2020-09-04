@@ -27,7 +27,7 @@
     "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",
     "morgan": "^1.9.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.4",
     "pug": "^2.0.4",
     "shell-quote": "^1.7.2",
