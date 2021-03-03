@@ -29,7 +29,7 @@
     "morgan": "^1.9.1",
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "shell-quote": "^1.7.2",
     "socket.io": "^2.3.0",
     "uglify-js": "^3.6.7"
