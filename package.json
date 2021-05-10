@@ -24,7 +24,7 @@
     "gulp-browserify": "^0.5.1",
     "gulp-csso": "^3.0.1",
     "gulp-sass": "^4.0.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "morgan": "^1.9.1",
     "node-sass": "^4.13.0",
