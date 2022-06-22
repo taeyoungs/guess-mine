@@ -30,7 +30,7 @@
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
     "pug": "^2.0.4",
-    "shell-quote": "^1.7.2",
+    "shell-quote": "^1.7.3",
     "socket.io": "^2.3.0",
     "uglify-js": "^3.6.7"
   },
